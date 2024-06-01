@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Suppressor DOE</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="main_page.css"> 
+	<script src="main_page.js"></script> 
+	<script src="optimization.js"></script> 
+</head>
+<body>
+	<div id="scenario_documents"></div>
+	<div id="document_variables">
+		<div id="list_wrap">
+			<ul id="variable_tabs">
+				<li class="var_tab" title="variable_content">Variable Data</li>
+				<li class="var_tab" title="player_content">Players</li>
+			</ul>
+		</div>
+		<div id="tab_content">
+			<div class="content_table" id="variable_content"></div>
+			<div class="content_table" id="player_content"></div>
+		</div>
+	</div>
+	<div id="text_editor">
+		<div id="text_container">
+			<div id="text_backdrop">
+				<div id="highlights"></div>
+			</div>
+			<textarea id="scenario_text" name="scenario_text"></textarea>
+		</div>
+		<div id="experiment_buttons">
+			<button id="upload_variables">Upload Variables</button>
+			<button id="update_document">Update Document</button>
+			<button id="create_experiment">Create Experiment</button>
+			<button id="create_optimization">Genetic Algorithm</button>
+		</div>
+	</div>
+	<div id="experiment_nav" class="overlay">
+		<a href="javascript:void(0)" id="close_experiment">&times;</a>
+		<div class="overlay_content">
+			<div>
+				<div id="experiment_schema"><ul></ul></div>
+				<div id="experiment_inputs">
+					<div id="jog_file_options">
+						<label style="flex-basis:20%" id="jog_files_btn" style="color:white">
+							<input type="file" multiple>
+							<span>Choose Jog File(s)</span>
+						</label>
+						<div style="flex-basis:80%" id="jog_files"></div>
+					</div>
+					<input type="text" id="experiment_name" placeholder="Experiment Name"></input>
+					<input type="text" id="num_of_samples" placeholder="# of Samples"></input>
+				</div>
+			</div>
+			<div id="experiment_titles">
+				<div style="flex-basis:24%">SDB EXPERIMENTS</div>
+				<div style="flex-basis:24%">EXPERIMENTS CHOSEN</div>
+				<div style="flex-basis:24%">TDB EXPERIMENTS</div>
+				<div style="flex-basis:28%">MESSAGES CHOSEN</div>
+			</div>
+			<div id="experiments">
+				<div style="flex-basis:24%" class="exp" id="sdb_experiments"></div>
+				<div style="flex-basis:24%" class="exp" id="experiments_chosen"></div>
+				<div style="flex-basis:24%" class="exp" id="tdb_experiments"></div>
+				<div style="flex-basis:28%">
+					<div class="exp" id="msg_choices"></div>
+					<input type="text" id="msg_file" placeholder="Message File"></input>
+				</div>
+			</div>
+			<button id="run_exp_btn">RUN EXPERIMENT</button>
+		</div>
+	</div>
+	<div id="optimization_nav" class="overlay">
+		<a href="javascript:void(0)" id="close_optimization">&times;</a>
+		<div id="optimization_inputs"></div>
+		<div id="optimization_grid">
+			<div id="msg_vars"></div>
+			<div id="algorithm_opts"></div>
+			<div id="value_function" class="val_func">
+				<ul class="val_func"></ul>
+			</div>
+			<div id="doc_constraints"></div>
+			<div id="math_operations"></div>
+			<div id="exec_file_opts">
+				<label style="flex-basis:20%" id="exec_files_btn" style="color:white">
+					<input type="file" multiple>
+					<span>Choose Jog File(s)</span>
+				</label>
+				<div style="flex-basis:80%" id="exec_files"></div>
+			</div>
+			<input type="text" id="exec_output" placeholder="Message File"></input>
+		</div>
+		<div class="container">
+			<a id="run_optimization">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				RUN OPTIMIZATION
+			</a>
+		</div>
+	</div>
+	<div id="upload_success" class="fade_in"></div>
+	<div id="error_screen" class="fade_in">
+		<div id="error_msg"></div>
+	</div>
+	<div id="exp_error_screen" class="fade_in">
+		<div id="exp_error_msg"></div>
+	</div> 
+	<div id="exp_progress" class="fade_in">
+		<div id="exp_ring">
+			<input type="text" id="exp_progress_value">
+		</div>
+		<div id="abort-container">
+			<button id="abort-button">Abort Experiment</button>
+		</div>
+	</div>
+</body>
+</html>

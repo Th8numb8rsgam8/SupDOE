@@ -1,0 +1,191 @@
+                          @{spook lover}@
+EXECUTE
+INSTRUCTIONS-FOR:
+SDB
+ SDB for Bomber Demonstration Scenario
+RANDOM-NUMBER-SEED: 120403910 
+RADIUS OF SCENARIO:  600. (KM)  LOCATION RESOLUTION TIME: 0.0 (SEC)
+START TIME: 0.0 (SEC)           STOP TIME: 30. (MIN)
+CHECKPOINT TIME INCREMENT: 1.1 (HR)
+CENTER OF SCENARIO L/L: 02425403N 11945010E  DO-NOT-USE-TERRAIN
+
+NET TYPE broadcast  MODE: INTERMITTEND CHANGE FREQ DELAY: 10.5 (SEC)
+  MSG ASGN-STAT    TRANSMIT-TIME:  3.6 (SEC) 1-WAY PRIORITY: 7
+  MSG CNCL-ASGN    TRANSMIT-TIME:  2.7 (SEC) 1-WAY PRIORITY: 8
+  MSG ENG-STAT     TRANSMIT-TIME:  3.6 (SEC) 1-WAY-PRIORITY: 6
+  MSG WPN-ASGN     TRANSMIT-TIME:  4.5 (SEC) 1-WAY-PRIORITY: 9
+  MSG MOC-CHANGE   TRANSMIT-TIME:  4.5 (SEC) 1-WAY-PRIORITY: 9
+  MSG DEATH        TRANSMIT-TIME:  2.7 (SEC) 1-WAY-PRIORITY: 5
+  MSG INTELL       TRANSMIT-TIME:  2.5 (SEC) 1-WAY-PRIORITY: 3
+  MSG MOVE-ORDER   TRANSMIT-TIME:  2.5 (SEC) 1-WAY-PRIORITY: 4
+
+DEFINE-SHARED-ZONES
+   ZONE 10 sam_zone RELATIVE
+      MIN/MAX ALT:  0.0 (M) MSL  30. (KM) AGL
+          MIN/MAX RNG:@{Minimum Range}@   45.0 (KM)
+END DEFINE-SHARED-ZONES
+
+SIDE blue
+
+COMMAND CHAIN blue_chain
+
+PLAYER: 1 bomber LEVEL: 1
+  LOC: 1  X,Y,Z:    0.0  40000.0 (M) 1524.0 (M)  AGL
+    ELEMENT:  11 bomber_ele  DISCRETE QUANTITY: 1
+      SYSTEM:  120 bomber_radar_rx  ON
+    END ELEMENT
+    PATH  START TIME:  0.0 (SEC)  ALT: AGL  MODE: 3-D
+      PLAN bomb_target
+        X,Y,Z:   0.0  40000.0 (M) 1524.0 (M)
+	  SPD:  500.0 (KTS)  TURN-RADIUS: 2. (KM)
+	X,Y,Z:   130000.0  0.0 (M) 1524.0 (M)
+	X,Y,Z:   0.0   40000.0 (M) 1524.0 (M)
+  END LOCATION
+  MODES-OF-CONTROL: ENGAGE bomber
+  ZONE 1 target_area RELATIVE
+  MIN/MAX ALT: -5. (M) MSL  5. (M) AGL
+  RELATIVE TO L/L,Z:  02425208  12102007E  0.0 (M) AGL
+    X,Y:    -5.0  -1.0 (KM)    X,Y:  5.0  -1.0 (KM)
+    X,Y:     5.0   1.0 (KM)    X,Y: -5.0   1.0 (KM)
+END PLAYER
+
+@{New Variable}@
+PLAYER: 2 bomber LEVEL: 1
+  LOC: 1  X,Y,Z:    0.0  40000.0 (M) 1524.0 (M)  AGL
+    ELEMENT:  11 bomber_ele  DISCRETE QUANTITY: 1
+      SYSTEM:  120 bomber_radar_rx  ON
+    END ELEMENT
+    PATH  START TIME:  0.0 (SEC)  ALT: AGL  MODE: 3-D
+      PLAN bomb_target
+        X,Y,Z:   0.0  40000.0 (M) 1524.0 (M)
+	  SPD:  500.0 (KTS)  TURN-RADIUS: 2. (KM)
+	X,Y,Z:   130000.0  0.0 (M) 1524.0 (M)
+	X,Y,Z:   0.0   40000.0 (M) 1524.0 (M)
+  END LOCATION
+  MODES-OF-CONTROL: @{Modes of Control}@
+  ZONE 1 target_area RELATIVE
+  MIN/MAX ALT: -5. (M) MSL  5. (M) AGL
+  RELATIVE TO L/L,Z:  02425208  12102007E  0.0 (M) AGL
+    X,Y:    -5.0  -1.0 (KM)    X,Y:  5.0  -1.0 (KM)
+    X,Y:     5.0   1.0 (KM)    X,Y: -5.0   1.0 (KM)
+END PLAYER
+
+
+PLAYER: 3 bomber LEVEL: 1
+  LOC: 1  X,Y,Z:    0.0  40000.0 (M) 1524.0 (M)  AGL
+    ELEMENT:  11 bomber_ele  DISCRETE QUANTITY: 1
+      SYSTEM:  120 bomber_radar_rx  ON
+    END ELEMENT
+    PATH  START TIME:  0.0 (SEC)  ALT: AGL  MODE: 3-D
+      PLAN bomb_target
+        X,Y,Z:   0.0  40000.0 (M) 1524.0 (M)
+	  SPD:  500.0 (KTS)  TURN-RADIUS: 2. (KM)
+	X,Y,Z:   130000.0  0.0 (M) 1524.0 (M)
+	X,Y,Z:   0.0   40000.0 (M) 1524.0 (M)
+  END LOCATION
+  MODES-OF-CONTROL: ENGAGE bomber
+  ZONE 1 target_area RELATIVE
+  MIN/MAX ALT: -5. (M) MSL  5. (M) AGL
+  RELATIVE TO L/L,Z:  02425208  12102007E  0.0 (M) AGL
+    X,Y:    -5.0  -1.0 (KM)    X,Y:  5.0  -1.0 (KM)
+    X,Y:     5.0   1.0 (KM)    X,Y: -5.0   1.0 (KM)
+END PLAYER
+
+  
+PLAYER: 4 bomber LEVEL: 1
+  LOC: 1  X,Y,Z:    0.0  40000.0 (M) 1524.0 (M)  AGL
+    ELEMENT:  11 bomber_ele  DISCRETE QUANTITY: 1
+      SYSTEM:  120 bomber_radar_rx  ON
+    END ELEMENT
+    PATH  START TIME:  0.0 (SEC)  ALT: AGL  MODE: 3-D
+      PLAN bomb_target
+        X,Y,Z:   0.0  40000.0 (M) 1524.0 (M)
+	  SPD:  500.0 (KTS)  TURN-RADIUS: 2. (KM)
+	X,Y,Z:   130000.0  0.0 (M) 1524.0 (M)
+	X,Y,Z:   0.0   40000.0 (M) 1524.0 (M)
+  END LOCATION
+  MODES-OF-CONTROL: ENGAGE bomber
+  ZONE 1 target_area RELATIVE
+  MIN/MAX ALT: -5. (M) MSL  5. (M) AGL
+  RELATIVE TO L/L,Z:  02425208  12102007E  0.0 (M) AGL
+    X,Y:    -5.0  -1.0 (KM)    X,Y:  5.0  -1.0 (KM)
+    X,Y:     5.0   1.0 (KM)    X,Y: -5.0   1.0 (KM)
+END PLAYER
+
+END COMMAND CHAIN
+END SIDE
+
+PLAYER:  300 sam_rgt  LEVEL: 1
+  LOC: 1   L/L,Z:  02402076N 12024590E  1.0 (M)  AGL HDG: 90.0 (DEG)
+    ELEMENT: 11  sam_rgt_ele  DISCRETE QUANTITY: 1
+      SYSTEM: 112 comm_rcvr  ON  FREQ: 25. (MHZ)  NET: 10 broadcast
+      SYSTEM: 114 comm_rcvr  ON  FREQ: 25. (MHZ)  NET: 10 broadcast
+      SYSTEM: 116 sam_radar_rx  ON  FREQ:  3.0 (GHZ)
+    END ELEMENT
+  END LOCATION
+  MODES-OF-CONTROL:  ENGAGE sam_rgt
+END PLAYER
+
+PLAYER:  310 sam_btry  LEVEL: 2
+  LOC: 1 X,Y,Z:  90000.0  -10000.0 (M)  1.0 (M) AGL HDG: @{Heading}@ (DEG)
+   ELEMENT: 11  sam_btry_ele  DISCRETE QUANTITY: 1
+     SYSTEM: 111 comm_rcvr  ON  FREQ: 25. (MHZ)  NET: 10 broadcast
+     SYSTEM: 121 sam_radar_rx OFF  FREQ:  3.1 (GHZ)
+   END ELEMENT
+  END LOCATION
+  MODES-OF-CONTROL:  ENGAGE sam_rgt  EMCON CMDR
+  USE-SHARED-ZONE  10 sam-zone
+END PLAYER
+
+PLAYER:  320 sam_btry  LEVEL: 2
+  LOC: 1 X,Y,Z:  70000.0  -40000.0 (M)  1.0 (M) AGL HDG: 135.0 (DEG)
+   ELEMENT: 11  sam_btry_ele  DISCRETE QUANTITY: 1
+     SYSTEM: 111 comm_rcvr  ON  FREQ: 25. (MHZ)  NET: 10 broadcast
+     SYSTEM: 121 sam_radar_rx OFF  FREQ:  3.1 (GHZ)
+   END ELEMENT
+  END LOCATION
+  MODES-OF-CONTROL:  ENGAGE sam_rgt  EMCON CMDR
+  USE-SHARED-ZONE  10 sam-zone
+END PLAYER
+
+
+PLAYER:  330 sam_btry  LEVEL: 2
+  LOC: 1 X,Y,Z:  60000.0  -80000.0 (M)  1.0 (M) AGL HDG: 135.0 (DEG)
+   ELEMENT: 11  sam_btry_ele  DISCRETE QUANTITY: 1
+     SYSTEM: 111 comm_rcvr  ON  FREQ: 25. (MHZ)  NET: 10 broadcast
+     SYSTEM: 121 sam_radar_rx OFF  FREQ:  3.1 (GHZ)
+   END ELEMENT
+  END LOCATION
+  MODES-OF-CONTROL:  ENGAGE sam_rgt  EMCON CMDR
+  USE-SHARED-ZONE  10 sam-zone
+END PLAYER
+
+PLAYER: 101 target LEVEL: 1
+ LOC: 1  X,Y,Z:  130000.0 0.0 (M) 0.0 (M) AGL
+   ELEMENT: 11 target_ele DISCRETE QUANTITY: 1  END ELEMENT
+ END LOCATION
+END PLAYER
+
+PLAYER: 102 target LEVEL: 1
+ LOC: 1  X,Y,Z:  110000.0 -30000.0 (M) 0.0 (M) AGL
+   ELEMENT: 11 target_ele DISCRETE QUANTITY: 1  END ELEMENT
+ END LOCATION
+END PLAYER
+
+PLAYER: 103 target LEVEL: 1
+ LOC: 1  X,Y,Z:  90000.0 -60000.0 (M) 0.0 (M) AGL
+   ELEMENT: 11 target_ele DISCRETE QUANTITY: 1  END ELEMENT
+ END LOCATION
+END PLAYER
+
+PLAYER: 104 target LEVEL: 1
+ LOC: 1  X,Y,Z:  70000.0 -90000.0 (M) 0.0 (M) AGL
+   ELEMENT: 11 target_ele DISCRETE QUANTITY: 1  END ELEMENT
+ END LOCATION
+END PLAYER
+
+END COMMAND CHAIN
+END SIDE
+
+END SCENARIO COMPLETE
+END-INSTRUCTIONS SAVE-DATA
